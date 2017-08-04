@@ -1,0 +1,49 @@
+@import './template.scss';
+@import './main_component.scss';
+@import './portfolio.scss';
+
+body{
+  font-size: 20px;
+}
+
+$columns: 7;
+$base-width: 100%/$columns;
+
+.container {
+  margin: 0 auto;
+  width: 1000px;
+  .row{
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+
+    // clearfix dla rzędów
+    &:before, &:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    // właściwości dla wszystkich kolumn
+    [class*="col-"]{
+      min-height: 1px;
+      float: left;
+      padding: 15px;
+      word-wrap: break-word;
+    }
+
+    // Tworzenie kolumn
+    @for $i from 1 through $columns {
+      .col-#{$i}{
+        width: $base-width * $i;
+      }
+    }
+  }
+}
+
+.visible{
+  display:block;
+}
+.hidden{
+  display:none;
+}

@@ -1,0 +1,17 @@
+#projects{
+  list-style:none;
+  >li:first-child{
+    display:block;
+  }
+  .dropdown{
+    &:before{
+      content:"+ ";
+    }
+    &:hover{
+      cursor:pointer;
+    }
+  }
+  ul{
+    list-style: none;
+  }
+}
